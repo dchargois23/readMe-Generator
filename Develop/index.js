@@ -65,7 +65,10 @@ function generatemd(answers) {
 
             # ${answers.title} 
 
-            ![](https://img.shields.io/github/issues/${answers.username}//readMe-Generator)
+    
+            [![Badge](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+             ![Badge](https://img.shields.io/badge/ReadMe${answers.userTitle}-${answers.version}-${answers.badgeColor})
+            # ${answers.userTitle}
             
            
             ## Description
