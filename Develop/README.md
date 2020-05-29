@@ -1,8 +1,11 @@
 
 
-            # DOIWFV[ON 
+            # Readme Generator 
+
+            https://img.shields.io/badge/Verson-0.00-lightgrey , 
+
             ## Description
-            wefwEF
+            This generator will prodcce
 
             ###Table of Contents
                 * Installation
@@ -16,16 +19,16 @@
             undefined
 
             ## Usage
-            Wefwef
+            all typess
 
             ## License
-            wefwef
+            Open
 
             ## Contribution
-            undefined
+            Everything
 
             ## Tests
-            sdcs
+            None
 
             ## Questions
             undefined 
