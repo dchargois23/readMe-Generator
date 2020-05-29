@@ -1,0 +1,22 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "The will generate a readMe file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dchargois23/readMe-Generator.git"
+  },
+  "author": "Derrick Chargois",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dchargois23/readMe-Generator/issues"
+  },
+  "homepage": "https://github.com/dchargois23/readMe-Generator#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}

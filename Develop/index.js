@@ -1,76 +1,192 @@
+const inquirer = require("inquirer");
+const axios = require("axios");
+const fs = require("fs");
+const util = require("util");
+
+const writeFileAsync = util.promisify(fs.writeFile);
+
+function promptUser() {
+    return inquirer.prompt([
+        {
+            type: "input",
+            message: "What is the title of your project?",
+            name: "title"
+        },
+
+        {
+            type: "input",
+            message: "Description of project.",
+            name: "description"
+        },
+
+        {
+            type: "input",
+            message: "Usage",
+            name: "usage"
+        },
+
+        {
+            type: "input",
+            message: "License",
+            name: "license"
+        },
+
+        {
+            type: "input",
+            message: "What did you contribute?",
+            name: "Contributions"
+        },
+
+        {
+            type: "input",
+            message: "Tests",
+            name: "tests"
+        },
+
+        {
+            type: "input",
+            message: "Do you have any questions?",
+            name: "Questions"
+        },
+        {
+            type: "input",
+            message: "What is your Github username",
+            name: "username"
+        },
+        {
+            type: "input",
+            message: "What is your Github username",
+            name: "username"
+        },
+
+    ]);
+
+}
+
+function generatemd(answers) {
+    return `
+
+            # ${answers.title} 
+            ## Description
+            ${answers.description}
+
+            ###Table of Contents
+                * Installation
+                * Current Version 
+                * License
+                * Contributing
+                * User GitHub profile picture
+                * User GitHub email
+            
+            ## Installation
+            ${answers.install}
+
+            ## Usage
+            ${answers.usage}
+
+            ## License
+            ${answers.license}
+
+            ## Contribution
+            ${answers.contribution}
+
+            ## Tests
+            ${answers.tests}
+
+            ## Questions
+            ${answers.questions} `;
 
 
-var fs = require("fs");
+}
 
 
-var inquirer = require("inquirer");
 
 
-fs.writeFile("message.md", "", 'utf8', (err) => {
-    if (err) throw err;
+
+
+
+
+
+
+
+async function init() {
+
+    try {
+        const answers = await promptUser();
+
+        const md = generatemd(answers);
+
+        await writeFileAsync("README.md", md);
+
+        console.log("Successfully wrote to README.md");
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.then(function ({ username }) {
+    const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
+
+    axios.get(queryUrl).then(function (res) {
+        const repoNames = res.data.map(function (repo) {
+            return repo.name;
+        });
+
+        const repoNamesStr = repoNames.join("\n");
+
+        fs.writeFile("repos.txt", repoNamesStr, function (err) {
+            if (err) {
+                throw err;
+            }
+
+            console.log(`Saved ${repoNames.length} repos`);
+        });
+    });
 });
 
 
 
-inquirer
-    .prompt([
-        {
-            type: "input",
-            message: "What is the name of your title?",
-            name: "Title"
-        },
-        {
-            type: "input",
-            message: "Please give a breif description of your project.",
-            name: "Description"
-        },
-        {
-            type: "input",
-            message: "What are the steps required to install your project?",
-            name: "Installation"
-        }
-    ])
-    .then(function (response) {
-        console.log(response);
-        console.log(Object.keys(response))
+// inquirer
+//     .prompt({
+//         message: "Enter your GitHub username:",
+//         name: "username"
+//     })
+//     .then(function ({ username }) {
+//         const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
 
-        // fs.writeFile('message.md', JSON.stringify(response), 'utf8', (err) => {
-        //     if (err) throw err;
-        // });
+//         axios.get(queryUrl).then(function (res) {
+//             const repoNames = res.data.map(function (repo) {
+//                 return repo.name;
+//             });
 
-        let cuPrompt = Object.keys(response);
-        let cuAns = Object.values(response);
+//             const repoNamesStr = repoNames.join("\n");
 
+//             fs.writeFile("repos.txt", repoNamesStr, function (err) {
+//                 if (err) {
+//                     throw err;
+//                 }
 
-        for (let i = 0; i < cuPrompt.length; i++) {
-
-            let stringToAppend = ""
-
-            if (cuPrompt[i] === "Title") {
-
-
-                stringToAppend = `# ${cuAns[i]}`
-            }
-
-            else if (cuPrompt[i] === "Description") {
-
-                stringToAppend = "\n### Description\n" + cuAns[i]
-
-
-
-
-                //
-
-
-
-            }
-
-
-
-
-            fs.appendFile('message.md', stringToAppend, 'utf8', (err) => {
-                if (err) throw err;
-            });
+//                 console.log(`Saved ${repoNames.length} repos`);
+//             });
+//         });
+//     });
 
 
 
@@ -78,29 +194,16 @@ inquirer
 
 
 
-        }
-
-    });
 
 
+//     Title
+//   * Description
+//   * Table of Contents
+//   * Installation
+//   * Usage
+//   * License
+//   * Contributing
+//   * Tests
+//   * Questions
 
-
-// //const questions = [
-
-
-
-// ];
-
-// //function writeToFile(fileName, data) {
-// }
-
-// function init() {
-
-// }
-
-// init();
-
-
-
-
-
+// * The generated README includes 1 badge that's specific to the repository.
