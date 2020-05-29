@@ -2,7 +2,10 @@
 The "README" generator will allow for an quick and easy generation of a project README file
 
  # Random 
-![](https://img.shields.io/github/issues/dchargois23/readMe-Generator?color=ruby%20green&label=green)
+![](https://img.shields.io/github/issues/dchargois23/readMe-Generator)
+![](https://img.shields.io/github/forks/dchargois23/readMe-Generator)
+![](https://img.shields.io/github/stars/dchargois23/readMe-Generator)
+![](https://img.shields.io/github/license/dchargois23/readMe-Generator)
 
             ## Description
             Rocket SHip
