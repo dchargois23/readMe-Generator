@@ -50,12 +50,7 @@ function promptUser() {
         },
         {
             type: "input",
-            message: "What is your Github username",
-            name: "username"
-        },
-        {
-            type: "input",
-            message: "What is your Github username",
+            message: "Enter your GitHub username:",
             name: "username"
         },
 
@@ -63,13 +58,16 @@ function promptUser() {
 
 }
 
+
+
 function generatemd(answers) {
     return `
 
             # ${answers.title} 
 
-            https://img.shields.io/badge/Verson-0.00-lightgrey , 
-
+            ![](https://img.shields.io/github/issues/${answers.username}//readMe-Generator)
+            
+           
             ## Description
             ${answers.description}
 
@@ -122,9 +120,7 @@ init();
 
 
 
-
-
-// .then(function ({ username }) {
+// .then(function ({ answers }) {
 //     const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
 
 //     axios.get(queryUrl).then(function (res) {
@@ -134,15 +130,13 @@ init();
 
 //         const repoNamesStr = repoNames.join("\n");
 
-//         fs.writeFile("repos.txt", repoNamesStr, function (err) {
-//             if (err) {
-//                 throw err;
-//             }
-
-//             console.log(`Saved ${repoNames.length} repos`);
-//         });
+//         console.log(`Saved ${repoNames.length} repos`);
 //     });
+
 // });
+
+
+
 
 
 
@@ -173,20 +167,3 @@ init();
 
 
 
-
-
-
-
-
-
-//     Title
-//   * Description
-//   * Table of Contents
-//   * Installation
-//   * Usage
-//   * License
-//   * Contributing
-//   * Tests
-//   * Questions
-
-// * The generated README includes 1 badge that's specific to the repository.

@@ -1,11 +1,12 @@
 
 
-            # Readme Generator 
+            # Financial Organizer 
 
-            https://img.shields.io/badge/Verson-0.00-lightgrey , 
-
+            ![](https://img.shields.io/github/issues/dchargois23//readMe-Generator)
+            
+           
             ## Description
-            This generator will prodcce
+            This prject will be uiilized to track spending and bill pay
 
             ###Table of Contents
                 * Installation
@@ -19,16 +20,16 @@
             undefined
 
             ## Usage
-            all typess
+            Daily
 
             ## License
-            Open
+            MIT
 
             ## Contribution
-            Everything
+            I a contributed to the framework
 
             ## Tests
-            None
+            no
 
             ## Questions
             undefined 
